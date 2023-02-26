@@ -15,7 +15,7 @@ function  ChatInput() {
     }
     async function example(message: string) {
         const api = new ChatGPTUnofficialProxyAPI({
-            accessToken: process.env.OPENAI_ACCESS_TOKEN!
+            accessToken: process.env.OPENAI_ACCESSTOKEN!
           })
         
           const res = await api.sendMessage(message)
