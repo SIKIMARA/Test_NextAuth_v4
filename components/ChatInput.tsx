@@ -14,7 +14,7 @@ function  ChatInput() {
     }
     async function example(message: string) {
         const configuration = new Configuration({
-            apiKey: "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",
+            apiKey:process.env.OPENAI_API_KEY,
           });
           const openai = new OpenAIApi(configuration);
           

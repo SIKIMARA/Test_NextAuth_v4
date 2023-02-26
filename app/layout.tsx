@@ -3,9 +3,9 @@ import './globals.css'
 import { SessionProvider } from 'next-auth/react'
 import Navbar from './Navbar';
 export default function RootLayout({
-  children,session
+  children,
 }: {
-  children: React.ReactNode,session: any
+  children: React.ReactNode
 }) {
   return (
     <html lang="en">
@@ -15,7 +15,7 @@ export default function RootLayout({
       */}
       <head />
       <body>
-        <SessionProvider session={session}>
+        <SessionProvider >
         <Navbar/>
         {children}
         </SessionProvider>
