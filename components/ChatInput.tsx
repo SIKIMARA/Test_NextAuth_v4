@@ -3,7 +3,7 @@ import React from 'react'
 import {useSession } from "next-auth/react"
 import { Configuration, OpenAIApi} from "openai"
 import { motion } from 'framer-motion'
-import { ChatGPTUnofficialProxyAPI } from 'chatgpt'
+import { ChatGPTAPI } from 'chatgpt'
 function  ChatInput() {
     const {data:session} = useSession()
     const [message, setMessage] = React.useState('')
@@ -14,13 +14,23 @@ function  ChatInput() {
         
     }
     async function example(message: string) {
-        const api = new ChatGPTUnofficialProxyAPI({
-            accessToken: process.env.OPENAI_ACCESSTOKEN!
-          })
+        const configuration = new Configuration({
+            apiKey:process.env.OPENAI_API_KEY,
+          });
+          const openai = new OpenAIApi(configuration);
+          
+          const response = await openai.createCompletion({
+            model: "text-davinci-003",
+            prompt: `Human: ${message} \nAI:`,
+            temperature: 0.9,
+            max_tokens: 150,
+            top_p: 1,
+            frequency_penalty: 0.0,
+            presence_penalty: 0.6,
+            stop: [" Human:", " AI:"],
+          });
         
-          const res = await api.sendMessage(message)
-
-          setResponse(res.text)
+          setResponse(response.data.choices[0].text!)
         }
   return (
     <div>
