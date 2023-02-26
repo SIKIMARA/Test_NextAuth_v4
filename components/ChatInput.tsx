@@ -14,7 +14,7 @@ function  ChatInput() {
     }
     async function example(message: string) {
         const configuration = new Configuration({
-            apiKey: "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",
+            apiKey: "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",
           });
           const openai = new OpenAIApi(configuration);
           
@@ -41,7 +41,7 @@ function  ChatInput() {
                     onChange={(e) => setMessage(e.target.value)}
                 className='bg-transparent w-[95%] focus:outline-none' 
                 />
-                <button  type='submit' className='bg-gradient-to-r from-violet-500 to-fuchsia-500 p-2 rounded-full text-xs text-white' onClick={sendMessage} >Send</button>
+                <button  type='submit' className='bg-gradient-to-r from-violet-500 to-fuchsia-500 p-2 rounded-full text-xs text-white' >Send</button>
             </form>
             
         </div>
