@@ -7,7 +7,7 @@ export default function
   return (
     <div className='w-full flex justify-around items-center bg-white mb-5 h-[80px]'>
        
-       <h1 className='text-4xl font-bold bg-clip-text  text-transparent bg-gradient-to-r from-violet-500 to-fuchsia-500'>LABD</h1>
+       <h1 className='text-4xl font-bold bg-clip-text  text-transparent bg-gradient-to-r from-violet-500 to-fuchsia-500'>LAB</h1>
         <div className='flex items-center'>
             {
                 session ?
